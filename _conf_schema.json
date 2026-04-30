@@ -1,0 +1,27 @@
+{
+    "owncast_url": {
+        "type": "string",
+        "description": "Owncast 服务器的 URL，例如 http://localhost:8080",
+        "default": "http://localhost:8080"
+    },
+    "owncast_token": {
+        "type": "string",
+        "description": "Owncast 服务器的 API Token，用于验证 Webhook 请求",
+        "default": ""
+    },
+    "request_delay": {
+        "type": "integer",
+        "description": "在处理 Webhook 请求前的延迟时间（秒），以避免过快触发事件",
+        "default": 60
+    },
+    "timeout": {
+        "type": "integer",
+        "description": "Webhook 请求的超时时间（秒）",
+        "default": 10
+    },
+    "proxy_url": {
+        "type": "string",
+        "description": "可选的代理服务器 URL，例如 http://localhost:8080，如果不使用代理则留空",
+        "default": ""
+    }
+}
