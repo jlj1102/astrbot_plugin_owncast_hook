@@ -10,12 +10,12 @@
         "default": ""
     },
     "request_delay": {
-        "type": "integer",
+        "type": "int",
         "description": "在处理 Webhook 请求前的延迟时间（秒），以避免过快触发事件",
         "default": 60
     },
     "timeout": {
-        "type": "integer",
+        "type": "int",
         "description": "Webhook 请求的超时时间（秒）",
         "default": 10
     },
