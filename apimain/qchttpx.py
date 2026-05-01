@@ -10,7 +10,7 @@ class QUICKHTTPX:
 
     def _create_http_client(self, timeout_sec: int, follow_redirects: bool = False) -> httpx.AsyncClient:
         proxy_url = self._get_proxy_url()
-        verify_ssl = False
+        verify_ssl = self.config.get("verify_ssl", True)
         kwargs = {
             "timeout": timeout_sec,
             "follow_redirects": follow_redirects,

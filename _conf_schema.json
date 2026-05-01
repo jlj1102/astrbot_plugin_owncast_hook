@@ -1,17 +1,33 @@
 {
+    "owncast_user": {
+        "type": "string",
+        "description": "Owncast 服务器的用户名",
+        "default": "user"
+    },
     "owncast_url": {
         "type": "string",
-        "description": "Owncast 服务器的 URL，例如 http://localhost:8080",
+        "description": "Owncast 服务器的 URL，以http(s)://开头",
         "default": "http://localhost:8080"
     },
     "owncast_token": {
         "type": "string",
-        "description": "Owncast 服务器的 API Token，用于验证 Webhook 请求",
+        "description": "Owncast 服务器的 API Key",
+        "hint": "配置apikey时需要添加管理权限",
         "default": ""
+    },
+    "owncast_autorequest": {
+        "type": "bool",
+        "description": "是否自动请求Owncast状态",
+        "default": true
+    },
+    "request_qq_group": {
+        "type": "list",
+        "description": "自动接收 Webhook 请求的 QQ 群号",
+        "default": []
     },
     "request_delay": {
         "type": "int",
-        "description": "在处理 Webhook 请求前的延迟时间（秒），以避免过快触发事件",
+        "description": "在处理 Webhook 请求前的延迟时间（秒）",
         "default": 60
     },
     "timeout": {
@@ -19,9 +35,26 @@
         "description": "Webhook 请求的超时时间（秒）",
         "default": 10
     },
-    "proxy_url": {
-        "type": "string",
-        "description": "可选的代理服务器 URL，例如 http://localhost:8080，如果不使用代理则留空",
-        "default": ""
+    "advanced": {
+        "type": "object",
+        "description": "高级设置",
+        "items": {
+            "external_owncast_url": {
+                "type": "string",
+                "description": "外部访问 Owncast 服务器的 URL，以http(s)://开头",
+                "hint": "留空则使用 owncast_url 的值",
+                "default": ""
+            },
+            "proxy_url": {
+            "type": "string",
+            "description": "可选的代理服务器 URL, 如果不使用代理则留空",
+            "default": ""
+            },
+            "verify_ssl": {
+                "type": "bool",
+                "description": "是否验证 SSL 证书，默认为 true",
+                "default": true
+            }
+        }
     }
 }
