@@ -18,6 +18,7 @@ class OwnCastHook(Star):
         self._stop_event = asyncio.Event()
         self._task = asyncio.create_task(self.autoreq())
         self.online_status = None  # Store last known online status to detect changes
+        self.advancedcfg = config.get("advanced", {})
         
 
 
@@ -73,7 +74,8 @@ class OwnCastHook(Star):
         elif parsed['isonline'] != self.online_status:
             self.online_status = parsed['isonline']
             if parsed['isonline'] is True:
-                message = f"{self.config.get('owncast_user', 'user')}的 Owncast 直播开始了！\n正在直播: {parsed['title']}\n观看地址: {self.config.get('external_owncast_url', self.config.get('owncast_url', '').strip())}"
+                watch_url = self.advancedcfg.get('external_owncast_url', '').strip() or self.config.get("owncast_url", "").strip()
+                message = f"{self.config.get('owncast_user', 'user')}的 Owncast 直播开始了！\n正在直播: {parsed['title']}\n观看地址: {watch_url}"
                 await self.senderreq(message)
 
     async def senderreq(self, message: str):
