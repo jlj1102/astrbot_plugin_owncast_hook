@@ -4,10 +4,12 @@
 
 > [!NOTE]
 > 这个repo可能需要较高版本的Astrbot
+>
 > 暂时这个插件只适配于aiocqhttp控制器
 
 ## 前置
 该插件所需的apikey需要在Owncast网站管理的 /admin/access-tokens/ 界面添加一个token，需要给予管理权限以获取服务器状态
+
 这个插件依赖于Python的httpx (别问为啥，问就是httpx字段的代码一部分是借鉴来的)
 
 ## 配置文件设置
